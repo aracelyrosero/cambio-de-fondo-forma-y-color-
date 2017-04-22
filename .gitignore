@@ -1,0 +1,8 @@
+node_modules/
+jspm_packages/
+public/
+.idea/
+.tmp
+.sass-cache
+.DS_Store
+.bowerrc
