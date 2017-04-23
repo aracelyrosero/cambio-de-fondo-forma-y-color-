@@ -21,7 +21,8 @@
     <script src="Model/dataModel.js"></script>
 
 </head>
-<body ng-controller="controllerImagenes">
+<body ng-controller="controllerImagenes" style="background: #ffffff">
+<div style="background-color: #03090d">
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -42,12 +43,26 @@
         </ul>
     </div>
 </nav>
-<div class="btn-group btn-group-justified">
-    <a href="#" class="btn btn-primary">Pagina Principal</a>
-    <a href="#" class="btn btn-primary">Mis cursos</a>
-    <a href="#" class="btn btn-primary">Enlaces Externos</a>
-    <a href="#" class="btn btn-primary">Salida</a>
+
+<div class="container-fluid">
+    <div class="row " style="background-color: #03090d">
+        <div class="col-sm-3" style="padding: 0px 0px 0px 230px;" >
+            <button class="circular" style="background-color: #de99c5">Pagina Principal</button>
+
+        </div><div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
+        <button class="circular" style=" background-color: #de99c5">Mis cursos</button>
+
+    </div><div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
+        <button class="circular" style=" background-color: #de99c5">Enlaces Externos</button>
+
+    </div><div class="col-sm-3" style="padding: 0px 0px 0px 80px; ">
+        <button class="circular" style=" background-color: #de99c5">Salida</button>
+
+    </div>
+    </div>
 </div>
+</div>
+
 <div ng-show="mostarEditar">
     <form>
         <div >
@@ -69,21 +84,22 @@
         <script>
             var loadFile = function(event) {
                 var output = document.getElementById('output');
-                document.body.style.background = URL.createObjectURL(event.target.files[0]);
+                document.body.style.backgroundImage = URL.createObjectURL(event.target.files[0]);
             };
         </script>
     </form>
 </div>
 <div  ng-show="correctSave"class="alert alert-success">Guardado con exito</div>
-<div class="row">
-    <div class="col-sm-2">
+
+<div class="row" id="boton">
+    <div class="col-sm-2" >
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="material-button-anim">
                         <ul class="list-inline" id="options">
                             <li class="option">
-                                <button class="material-button option1" type="button" data-toggle="modal"data-target="#modalFormas">
+                                <button class="material option1" id="option1" type="button" ng-style="miColor" data-toggle="modal"data-target="#modalFormas">
                                     <span class="fa fa-diamond" aria-hidden="true"></span>
                                 </button>
                                 <div class="modal fade" id="modalFormas" role="dialog">
@@ -109,7 +125,7 @@
                                 </div>
                             </li>
                             <li class="option">
-                                <button class="material-button option2" data-toggle="modal"data-target="#modalColor"type="button">
+                                <button class="material option2" data-toggle="modal" ng-style="miColor" data-target="#modalColor" type="button">
                                     <span class="fa fa-paint-brush" aria-hidden="true"></span>
                                 </button>
                                 <div class="modal fade" id="modalColor" role="dialog">
@@ -118,18 +134,18 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Administrar</h4>
+                                                <h4 class="modal-title">Selecciona un color</h4>
                                             </div>
                                             <div class="modal-body" class="row">
-                                                <button type="button" style=" padding:20px 40px 20px 35px;background-color: #de5fcf" class="btn btn-default"></button>
-                                                <button type="button" style="padding:20px 40px 20px 35px; background-color: #1adebd" class="btn btn-default"></button>
-                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #2ea1de" class="btn btn-default"></button>
-                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #03090d" class="btn btn-default"></button>
-                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #de213f" class="btn btn-default"></button>
-                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #deba1e" class="btn btn-default"></button>
-                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #170ede" class="btn btn-default"></button>
+                                                <button type="button" style=" padding:20px 40px 20px 35px;background-color: #de5fcf" class="btn btn-default" ng-click="cambioColor(colorRosado)" data-dismiss="modal" ></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px; background-color: #1adebd" class="btn btn-default" ng-click="cambioColor(colorVerde)"data-dismiss="modal"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #2ea1de" class="btn btn-default" ng-click="cambioColor(colorCeleste)"data-dismiss="modal"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #03090d" class="btn btn-default" ng-click="cambioColor(colorNegro)"data-dismiss="modal"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #de213f" class="btn btn-default"ng-click="cambioColor(colorRojo)"data-dismiss="modal"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #deba1e" class="btn btn-default" ng-click="cambioColor(colorAmarrillo)"data-dismiss="modal"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #170ede" class="btn btn-default"ng-click="cambioColor(colorAzul)"data-dismiss="modal"></button>
                                             </div>
-                                            <div class="modal-footer">
+                                            <div class="modal-footer " >
                                                 <button type="button" class="btn btn-default text-center" data-dismiss="modal" >Cerrar</button>
                                             </div>
                                         </div>
@@ -137,12 +153,12 @@
                                 </div>
                             </li>
                             <li class="option">
-                                <button class="material-button option3" type="button">
+                                <button class="material option3" ng-style="miColor"type="button">
                                     <span class="fa fa-crosshairs" aria-hidden="true"></span>
                                 </button>
                             </li>
                         </ul>
-                        <button class="material-button material-button-toggle"ng-click="ready()" type="button">
+                        <button class="material material-button-toggle"ng-style="miColor" ng-click="ready()" type="button">
                             <span class="fa fa-user-circle-o" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -165,7 +181,7 @@
         margin: 0 auto 20px;
     }
 /*de5fcf   1adebd    2ea1de    03090d*/
-    .material-button {
+    .material {
         position: relative;
         top: 0;
         z-index: 1;
@@ -173,7 +189,6 @@
         height: 70px;
         font-size: 1.5em;
         color: #fff;
-        background: #03090d;
         border: none;
         border-radius: 50%;
         box-shadow: 0 3px 6px rgba(0,0,0,.275);
@@ -289,5 +304,9 @@
         padding: 20px 40px 20px 35px;}
     .button5 {border-radius: 50%;
         padding: 20px 40px 20px 35px;    }
+    .circular { width: 100px; height: 100px;
+        border-radius: 150px; -webkit-border-radius: 150px;
+        -moz-border-radius: 150px; }
+
 </style>
 </html>
