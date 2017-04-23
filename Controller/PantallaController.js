@@ -5,6 +5,7 @@ angular.module('app',[])
     .controller("controllerImagenes",function($scope,$window) {
         var mostarEditar= false;
         var correctSave=false;
+        var  border= 'border-radius';
         $scope.option1;
         $scope.colorRosado='#de5fcf';
         $scope.colorVerde='#1adebd';
@@ -13,7 +14,10 @@ angular.module('app',[])
         $scope.colorRojo='#de213f';
         $scope.colorAmarrillo='#deba1e';
         $scope.colorAzul='#170ede';
-
+        $scope.cuadrado;
+        $scope.circulo;
+        $scope.rectangulo;
+        $scope.ovalo;
         $scope.showOpciones=function(show) {
             console.log(show);
             $scope.mostarEditar=show;
@@ -39,4 +43,19 @@ angular.module('app',[])
         $scope.miColor={
             backgroundColor:'#1adebd'
         }
+        $scope.cambioForma=function (forma) {
+            console.log(forma)
+            $scope.cuadrado.border='2px'
+        }
+
+        $scope.cuadrado={
+            border: '0px'
+
+    }
+
+       // $scope.material-button-toggle={
+       //  width: 90px;
+       //  height: 90,px;
+       //  margin: 0,auto;
+       //  }
     });
