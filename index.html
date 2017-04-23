@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html ng-app="app"  >
+<head>
+    <meta charset="UTF-8">
+    <title>Funcionabilidad</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.6/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Controller/IconosController.js"> </script>
+    <script src="Controller/PantallaController.js"> </script>
+    <link href="Css/misNotas.css">
+    <!--<script src="Css/miCalendario.css"></script>-->
+    <!--<script src="Css/miPerfil.css"></script>-->
+    <!--<script src="Css/misNotas.css"></script>-->
+    <script src="Model/dataModel.js"></script>
+
+</head>
+<body ng-controller="controllerImagenes">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Universida Politecnica Saleciana</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio del sitio</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Páginas del sitio<span class="caret"></span></a>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Materias<span class="caret"></span></a>
+
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mis Cursos<span class="caret"></span></a>
+
+            </li>
+            <li><a ng-hide="mostarEditar" ng-click="showOpciones(true)">Personalizar</a></li>
+            <li><a ng-show="mostarEditar" ng-click="showOpciones(false)">Guardar</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="btn-group btn-group-justified">
+    <a href="#" class="btn btn-primary">Pagina Principal</a>
+    <a href="#" class="btn btn-primary">Mis cursos</a>
+    <a href="#" class="btn btn-primary">Enlaces Externos</a>
+    <a href="#" class="btn btn-primary">Salida</a>
+</div>
+<div ng-show="mostarEditar">
+    <form>
+        <div >
+            <label  style="padding: 0px 1190px 0px 0px;">Cambie Color de fondo</label>
+            <br>
+            <div  style="padding: 0px 1300px 0px 0px;">
+                <input name="color" type="color"id="color"  value="#ffffff" onchange="myFunction()" />
+            </div>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("color").value;
+                    document.body.style.background = x ;
+                }
+            </script>
+        </div>
+        <br><br>
+        <label style="padding: 0px 1150px 0px 0px;">Seleccione Imagen de galeria</label>
+        <input   type="file" name="file" uploader-model="file"  accept="image/*" onchange="loadFile(event)" > <br>
+        <script>
+            var loadFile = function(event) {
+                var output = document.getElementById('output');
+                document.body.style.background = URL.createObjectURL(event.target.files[0]);
+            };
+        </script>
+    </form>
+</div>
+<div  ng-show="correctSave"class="alert alert-success">Guardado con exito</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="material-button-anim">
+                        <ul class="list-inline" id="options">
+                            <li class="option">
+                                <button class="material-button option1" type="button" data-toggle="modal"data-target="#modalFormas">
+                                    <span class="fa fa-diamond" aria-hidden="true"></span>
+                                </button>
+                                <div class="modal fade" id="modalFormas" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Administrar</h4>
+                                            </div>
+                                            <div class="modal-body" class="row">
+                                                <button class="button button1"></button>
+                                                <button class="button button2"></button>
+                                                <button class="button button3"></button>
+                                                <button class="button button4"></button>
+                                                <button class="button button5"></button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="option">
+                                <button class="material-button option2" data-toggle="modal"data-target="#modalColor"type="button">
+                                    <span class="fa fa-paint-brush" aria-hidden="true"></span>
+                                </button>
+                                <div class="modal fade" id="modalColor" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Administrar</h4>
+                                            </div>
+                                            <div class="modal-body" class="row">
+                                                <button type="button" style=" padding:20px 40px 20px 35px;background-color: #de5fcf" class="btn btn-default"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px; background-color: #1adebd" class="btn btn-default"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #2ea1de" class="btn btn-default"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #03090d" class="btn btn-default"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #de213f" class="btn btn-default"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #deba1e" class="btn btn-default"></button>
+                                                <button type="button" style="padding:20px 40px 20px 35px;background-color: #170ede" class="btn btn-default"></button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default text-center" data-dismiss="modal" >Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="option">
+                                <button class="material-button option3" type="button">
+                                    <span class="fa fa-crosshairs" aria-hidden="true"></span>
+                                </button>
+                            </li>
+                        </ul>
+                        <button class="material-button material-button-toggle"ng-click="ready()" type="button">
+                            <span class="fa fa-user-circle-o" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    body {
+        padding-top: 10px;
+    }
+
+    .material-button-anim {
+        position: relative;
+        padding: 127px 15px 27px;
+        text-align: center;
+        max-width: 320px;
+        margin: 0 auto 20px;
+    }
+/*de5fcf   1adebd    2ea1de    03090d*/
+    .material-button {
+        position: relative;
+        top: 0;
+        z-index: 1;
+        width: 70px;
+        height: 70px;
+        font-size: 1.5em;
+        color: #fff;
+        background: #03090d;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0,0,0,.275);
+        outline: none;
+    }
+    .material-button-toggle {
+        z-index: 3;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+    }
+    .material-button-toggle span {
+        -webkit-transform: none;
+        transform:         none;
+    }
+    .material-button-toggle.open {
+        -webkit-transform: scale(1.3,1.3);
+        transform:         scale(1.3,1.3);
+        -webkit-animation: toggleBtnAnim .175s;
+        animation:         toggleBtnAnim .175s;
+    }
+    .material-button-toggle.open span {
+        -webkit-transform: rotate(45deg);
+        transform:         rotate(45deg);
+    }
+
+    #options {
+        height: 70px;
+    }
+    .option {
+        position: relative;
+    }
+    .option .option1,
+    .option .option2,
+    .option .option3 {
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        -webkit-transition: all .175s;
+        transition:         all .175s;
+    }
+    .option .option1 {
+        -webkit-transform: translate3d(90px,90px,0) scale(.8,.8);
+        transform:         translate3d(90px,90px,0) scale(.8,.8);
+    }
+    .option .option2 {
+        -webkit-transform: translate3d(0,90px,0) scale(.8,.8);
+        transform:         translate3d(0,90px,0) scale(.8,.8);
+    }
+    .option .option3 {
+        -webkit-transform: translate3d(-90px,90px,0) scale(.8,.8);
+        transform:         translate3d(-90px,90px,0) scale(.8,.8);
+    }
+    .option.scale-on .option1,
+    .option.scale-on .option2,
+    .option.scale-on .option3 {
+        filter: blur(0);
+        -webkit-filter: blur(0);
+        -webkit-transform: none;
+        transform:         none;
+        -webkit-transition: all .175s;
+        transition:         all .175s;
+    }
+    .option.scale-on .option2 {
+        -webkit-transform: translateY(-28px) translateZ(0);
+        transform:         translateY(-28px) translateZ(0);
+        -webkit-transition: all .175s;
+        transition:         all .175s;
+    }
+
+    @keyframes toggleBtnAnim {
+        0% {
+            -webkit-transform: scale(1,1);
+            transform:         scale(1,1);
+        }
+        25% {
+            -webkit-transform: scale(1.4,1.4);
+            transform:         scale(1.4,1.4);
+        }
+        75% {
+            -webkit-transform: scale(1.2,1.2);
+            transform:         scale(1.2,1.2);
+        }
+        100% {
+            -webkit-transform: scale(1.3,1.3);
+            transform:         scale(1.3,1.3);
+        }
+    }
+    @-webkit-keyframes toggleBtnAnim {
+        0% {
+            -webkit-transform: scale(1,1);
+            transform:         scale(1,1);
+        }
+        25% {
+            -webkit-transform: scale(1.4,1.4);
+            transform:         scale(1.4,1.4);
+        }
+        75% {
+            -webkit-transform: scale(1.2,1.2);
+            transform:         scale(1.2,1.2);
+        }
+        100% {
+            -webkit-transform: scale(1.3,1.3);
+            transform:         scale(1.3,1.3);
+        }
+    }
+    .button1 {border-radius: 2px;
+        padding: 20px 40px 20px 35px;}
+    .button2 {border-radius: 4px;
+        padding: 20px 40px 20px 35px;}
+    .button3 {border-radius: 8px;
+        padding: 20px 40px 20px 35px;}
+    .button4 {border-radius: 12px;
+        padding: 20px 40px 20px 35px;}
+    .button5 {border-radius: 50%;
+        padding: 20px 40px 20px 35px;    }
+</style>
+</html>
