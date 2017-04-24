@@ -15,52 +15,62 @@
     <script src="Controller/IconosController.js"> </script>
     <script src="Controller/PantallaController.js"> </script>
     <link href="Css/misNotas.css">
-    <!--<script src="Css/miCalendario.css"></script>-->
-    <!--<script src="Css/miPerfil.css"></script>-->
-    <!--<script src="Css/misNotas.css"></script>-->
     <script src="Model/dataModel.js"></script>
 
 </head>
 <body ng-controller="controllerImagenes" style="background: #ffffff">
-<div style="background-color: #03090d">
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Universida Politecnica Saleciana</a>
+<div style="background-color: #000000">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Universida Politecnica Saleciana</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Inicio del sitio</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Páginas del sitio<span class="caret"></span></a>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Materias<span class="caret"></span></a>
+
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mis Cursos<span class="caret"></span></a>
+
+                </li>
+                <li><a ng-hide="mostarEditar" ng-click="showOpciones(true)">Personalizar</a></li>
+                <li><a ng-show="mostarEditar" ng-click="showOpciones(false)">Guardar</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio del sitio</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Páginas del sitio<span class="caret"></span></a>
-            </li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Materias<span class="caret"></span></a>
+    </nav>
 
-            </li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mis Cursos<span class="caret"></span></a>
-
-            </li>
-            <li><a ng-hide="mostarEditar" ng-click="showOpciones(true)">Personalizar</a></li>
-            <li><a ng-show="mostarEditar" ng-click="showOpciones(false)">Guardar</a></li>
-        </ul>
+    <div class="container-fluid">
+        <div class="row " style="background-color: #000000">
+            <div class="col-sm-3" style="padding: 0px 0px 0px 230px;" >
+                <button class="circular" style="background-color: #1adebd;font-size: 55px;">
+                    <span class="fa fa-home" aria-hidden="true"></span>
+                </button>
+                <label style="color: white;">Inicio</label>
+            </div>
+            <div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
+                <button class="circular" style=" background-color: #1adebd;font-size: 55px;">
+                    <span class="fa fa-book" aria-hidden="true"></span>
+                </button>
+                <label style="color: white;"> Mis cursos</label>
+            </div>
+            <div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
+                <button class="circular" style=" background-color: #1adebd;font-size: 55px;">
+                    <span class="fa fa-external-link" aria-hidden="true"></span>
+                </button>
+                <br>
+                <label style="color: white;">Enlaces</label>
+            </div>
+            <div class="col-sm-3" style="padding: 0px 0px 0px 80px; ">
+                <button class="circular" style=" background-color: #1adebd;font-size: 55px;">
+                    <span class="fa fa-sign-out" aria-hidden="true"></span>
+                </button>
+                <br>
+                <label style="color: white;">Salir</label>
+            </div>
+        </div>
     </div>
-</nav>
-
-<div class="container-fluid">
-    <div class="row " style="background-color: #03090d">
-        <div class="col-sm-3" style="padding: 0px 0px 0px 230px;" >
-            <button class="circular" style="background-color: #de99c5">Pagina Principal</button>
-
-        </div><div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
-        <button class="circular" style=" background-color: #de99c5">Mis cursos</button>
-
-    </div><div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
-        <button class="circular" style=" background-color: #de99c5">Enlaces Externos</button>
-
-    </div><div class="col-sm-3" style="padding: 0px 0px 0px 80px; ">
-        <button class="circular" style=" background-color: #de99c5">Salida</button>
-
-    </div>
-    </div>
-</div>
 </div>
 
 <div ng-show="mostarEditar">
@@ -80,17 +90,19 @@
         </div>
         <br><br>
         <label style="padding: 0px 1150px 0px 0px;">Seleccione Imagen de galeria</label>
-        <input   type="file" name="file" uploader-model="file"  accept="image/*" onchange="loadFile(event)" > <br>
+        <input  id="fileItem" type="file" name="file" uploader-model="file"  accept="image/*" onchange="loadFile(file.name)" > <br>
         <script>
             var loadFile = function(event) {
-                var output = document.getElementById('output');
-                document.body.style.backgroundImage = URL.createObjectURL(event.target.files[0]);
+                var output = document.getElementById('fileItem');
+                var file = document.getElementById('fileItem').files[0];
+                console.log(event);
+                console.log(file);
+                console.log(file.name);
+                document.body.style.backgroundImage = file.name;
             };
         </script>
     </form>
 </div>
-<div  ng-show="correctSave"class="alert alert-success">Guardado con exito</div>
-
 <div class="row" id="boton">
     <div class="col-sm-2" >
         <div class="container">
@@ -99,7 +111,7 @@
                     <div class="material-button-anim">
                         <ul class="list-inline" id="options">
                             <li class="option">
-                                <button class="material option1" id="option1" type="button" ng-style="miColor" data-toggle="modal"data-target="#modalFormas">
+                                <button id="menuDos"class="material option1" id="option1" type="button" ng-style="miColor" data-toggle="modal"data-target="#modalFormas">
                                     <span class="fa fa-diamond" aria-hidden="true"></span>
                                 </button>
                                 <div class="modal fade" id="modalFormas" role="dialog">
@@ -108,13 +120,11 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Administrar</h4>
+                                                <h4 class="modal-title">Seleccione una Imagen</h4>
                                             </div>
                                             <div class="modal-body" class="row">
-                                                <button class="buttom button1" ng-click="cambioForma('cuadrado')" style=" padding: 20px 40px 20px 35px;"></button>
-                                                <button class="buttom circularBoton"  style=" padding: 20px 40px 20px 35px;"></button>
-                                                <button class="buttom button4" style=" padding: 20px 40px 20px 35px;"></button>
-                                                <button class="buttom button5"  style=" padding: 20px 40px 20px 35px;"></button>
+                                                <button class="buttom button5"  ng-click="cambioForma('ovalo')" data-dismiss="modal"style=" padding: 20px 40px 20px 35px;"></button>
+                                                <button class="buttom circularBoton" ng-click="cambioForma('circulo')"data-dismiss="modal" style=" padding: 20px 40px 20px 35px;"></button>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
@@ -124,7 +134,7 @@
                                 </div>
                             </li>
                             <li class="option">
-                                <button class="material option2" data-toggle="modal" ng-style="miColor" data-target="#modalColor" type="button">
+                                <button id="menuUno"class="material option2" data-toggle="modal" ng-style="miColor" data-target="#modalColor" type="button">
                                     <span class="fa fa-paint-brush" aria-hidden="true"></span>
                                 </button>
                                 <div class="modal fade" id="modalColor" role="dialog">
@@ -152,12 +162,12 @@
                                 </div>
                             </li>
                             <li class="option">
-                                <button class="material option3" ng-style="miColor "type="button">
+                                <button id="menuTres" class="material option3" ng-style="miColor "type="button">
                                     <span class="fa fa-crosshairs" aria-hidden="true"></span>
                                 </button>
                             </li>
                         </ul>
-                        <button class="material material-button-toggle"ng-style=cuadrado" ng-click="ready()" type="button">
+                        <button  id="menuPrincipal" class="material material-button-toggle"ng-style="miColor" ng-style="miForma" ng-click="ready()" type="button">
                             <span class="fa fa-user-circle-o" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -167,6 +177,9 @@
     </div>
 </div>
 </body>
+<footer>
+    <div  ng-show="correctSave"class="alert alert-success" >Guardado con exito</div>
+</footer>
 <style>
     body {
         padding-top: 10px;
@@ -179,7 +192,7 @@
         max-width: 320px;
         margin: 0 auto 20px;
     }
-/*de5fcf   1adebd    2ea1de    03090d*/
+    /*de5fcf   1adebd    2ea1de    03090d*/
     .material {
         position: relative;
         top: 0;
@@ -306,8 +319,8 @@
         padding: 20px 40px 20px 35px;}
     .button5 {border-radius: 50%;
         padding: 20px 40px 20px 35px;    }
-    .circular { width: 100px; height: 100px;
-        border-radius: 150px; -webkit-border-radius: 150px;
+    .circular { width: 80px; height: 80px;
+        border-radius: 150px; -webkit-border-radius: 100px;
         -moz-border-radius: 150px; }
     .circularBoton { width: 60px; height: 60px;
         border-radius: 150px; -webkit-border-radius: 150px;
