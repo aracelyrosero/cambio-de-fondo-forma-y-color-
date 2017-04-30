@@ -92,17 +92,32 @@
         </div>
         <br><br>
         <label style="padding: 0px 1150px 0px 0px;">Seleccione Imagen de galeria</label>
-        <input  id="fileItem" type="file" name="file" uploader-model="file"  accept="image/*" onchange="loadFile(file.name)" > <br>
+        <input id="imgInp"  type="file" name="file" uploader-model="file"  accept="image/*" onchange="loadFile(event)" > <br>
+        <br />
+        <img id="output"/>
         <script>
             var loadFile = function(event) {
-                var output = document.getElementById('fileItem');
-                var file = document.getElementById('fileItem').files[0];
-                console.log(event);
-                console.log(file);
-                console.log(file.name);
-                document.body.style.backgroundImage = file.name;
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
             };
         </script>
+        <!--<input  id="fileItem" type="file" name="file" uploader-model="file" accept="image/*" onchange="loadFile(file.name)" > <br>-->
+        <!--<img id="output"/>-->
+        <!--<script>-->
+            <!--var loadFile = function(event) {-->
+                <!--var output = document.getElementById('output');-->
+                <!--output.src = URL.createObjectURL(event.target.files[0]);-->
+            <!--};-->
+        <!--</script>-->
+        <!--<script>-->
+            <!--var loadFile = function(event) {-->
+                <!--var output = document.getElementById('fileItem');-->
+                <!--var file = document.getElementById('fileItem').files[0];-->
+                <!--console.log(file);-->
+                <!--console.log(file.name);-->
+                <!--document.body.style.background = file.background;-->
+            <!--};-->
+        <!--</script>-->
     </form>
 </div>
 <div class="row" id="boton">
