@@ -47,12 +47,14 @@
                 <button class="circular" style="background-color: #1adebd;font-size: 55px;">
                     <span class="fa fa-home" aria-hidden="true"></span>
                 </button>
+                <br>
                 <label style="color: white;">Inicio</label>
             </div>
             <div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
                 <button class="circular" style=" background-color: #1adebd;font-size: 55px;">
                     <span class="fa fa-book" aria-hidden="true"></span>
                 </button>
+                <br>
                 <label style="color: white;"> Mis cursos</label>
             </div>
             <div class="col-sm-3" style="padding: 0px 0px 0px 180px; ">
@@ -123,8 +125,10 @@
                                                 <h4 class="modal-title">Seleccione una Imagen</h4>
                                             </div>
                                             <div class="modal-body" class="row">
+                                                <button class="buttom button4"  ng-click="cambioForma('cuadrado')" data-dismiss="modal"style=" padding: 20px 40px 20px 35px;"></button>
                                                 <button class="buttom button5"  ng-click="cambioForma('ovalo')" data-dismiss="modal"style=" padding: 20px 40px 20px 35px;"></button>
-                                                <button class="buttom circularBoton" ng-click="cambioForma('circulo')"data-dismiss="modal" style=" padding: 20px 40px 20px 35px;"></button>
+                                                <button class="buttom circularBoton" ng-click="cambioForma('circulo')"data-dismiss="modal" style=" padding: 30px 30px 30px 30px;"></button>
+                                                <!--<button class="buttom button3" ng-click="cambioForma('forma')"data-dismiss="modal" style=" padding: 30px 30px 30px 30px;"></button>-->
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
@@ -211,6 +215,7 @@
         width: 90px;
         height: 90px;
         margin: 0 auto;
+        border-radius: 50%;
     }
     .material-button-toggle span {
         -webkit-transform: none;
@@ -310,12 +315,14 @@
         padding: 20px 40px 20px 35px;}
     .button2 {border-radius: 4px;
         padding: 20px 40px 20px 35px;}
-    .button3 {  z-index: 3;
-        width: 90px;
-        height: 90px;
-        margin: 0 auto;
-        padding: 20px 40px 20px 35px;}
-    .button4 {border-radius: 12px;
+    .button3 {
+        width: 75px;
+        height: 35px;
+        -webkit-transform: skew(20deg);
+        -moz-transform: skew(20deg);
+        -o-transform: skew(20deg);
+              }
+    .button4 {border-radius: 0px;
         padding: 20px 40px 20px 35px;}
     .button5 {border-radius: 50%;
         padding: 20px 40px 20px 35px;    }
@@ -325,6 +332,7 @@
     .circularBoton { width: 60px; height: 60px;
         border-radius: 150px; -webkit-border-radius: 150px;
         -moz-border-radius: 150px; }
+
 
 </style>
 </html>

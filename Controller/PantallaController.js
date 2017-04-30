@@ -54,6 +54,18 @@ angular.module('app',[])
                 $scope.miForma = document.getElementById("menuDos").style.height = "40px";
                 $scope.miForma = document.getElementById("menuTres").style.width = "80px";
                 $scope.miForma = document.getElementById("menuTres").style.height = "40px";
+                $scope.miForma = document.getElementById("menuPrincipal").style.borderRadius="50%";
+                $scope.miForma = document.getElementById("menuUno").style.borderRadius="50%";
+                $scope.miForma = document.getElementById("menuDos").style.borderRadius="50%";
+                $scope.miForma = document.getElementById("menuTres").style.borderRadius="50%";
+                $scope.miForma=document.getElementById("menuPrincipal").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuPrincipal").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuUno").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuUno").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuDos").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuDos").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuTres").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuTres").style.oTransform="skew(0deg)"
             }
             if(forma=='circulo') {
                 $scope.miForma = document.getElementById("menuPrincipal").style.width = "70px";
@@ -64,7 +76,74 @@ angular.module('app',[])
                 $scope.miForma = document.getElementById("menuDos").style.height = "70px";
                 $scope.miForma = document.getElementById("menuTres").style.width = "70px";
                 $scope.miForma = document.getElementById("menuTres").style.height = "70px";
+                $scope.miForma = document.getElementById("menuPrincipal").style.borderRadius="50%";
+                $scope.miForma = document.getElementById("menuUno").style.borderRadius="50%";
+                $scope.miForma = document.getElementById("menuDos").style.borderRadius="50%";
+                $scope.miForma = document.getElementById("menuTres").style.borderRadius="50%";
+                $scope.miForma=document.getElementById("menuPrincipal").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuPrincipal").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuUno").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuUno").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuDos").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuDos").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuTres").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuTres").style.oTransform="skew(0deg)"
             }
+            if(forma=='cuadrado') {
+                $scope.miForma = document.getElementById("menuPrincipal").style.width = "80px";
+                $scope.miForma = document.getElementById("menuPrincipal").style.height = "40px";
+                $scope.miForma = document.getElementById("menuUno").style.width = "80px";
+                $scope.miForma = document.getElementById("menuUno").style.height = "40px";
+                $scope.miForma = document.getElementById("menuDos").style.width = "80px";
+                $scope.miForma = document.getElementById("menuDos").style.height = "40px";
+                $scope.miForma = document.getElementById("menuTres").style.width = "80px";
+                $scope.miForma = document.getElementById("menuTres").style.height = "40px";
+                $scope.miForma = document.getElementById("menuPrincipal").style.borderRadius="0%";
+                $scope.miForma = document.getElementById("menuUno").style.borderRadius="0%";
+                $scope.miForma = document.getElementById("menuDos").style.borderRadius="0%";
+                $scope.miForma = document.getElementById("menuTres").style.borderRadius="0%";
+                $scope.miForma=document.getElementById("menuPrincipal").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuPrincipal").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuUno").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuUno").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuDos").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuDos").style.oTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuTres").style.mozTransform="skew(0deg)"
+                $scope.miForma=document.getElementById("menuTres").style.oTransform="skew(0deg)"
+            }
+            if(forma=='forma') {
+                $scope.miForma = document.getElementById("menuPrincipal").style.width = "75px";
+                $scope.miForma = document.getElementById("menuPrincipal").style.height = "35px";
+                $scope.miForma = document.getElementById("menuUno").style.width = "75px";
+                $scope.miForma = document.getElementById("menuUno").style.height = "30px";
+                $scope.miForma = document.getElementById("menuDos").style.width = "75px";
+                $scope.miForma = document.getElementById("menuDos").style.height = "30px";
+                $scope.miForma = document.getElementById("menuTres").style.width = "75px";
+                $scope.miForma = document.getElementById("menuTres").style.height = "30px";
+                $scope.miForma=document.getElementById("menuPrincipal").style.webkitTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuPrincipal").style.mozTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuPrincipal").style.oTransform="skew(20deg)"  ;
+                $scope.miForma=document.getElementById("menuUno").style.webkitTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuUno").style.mozTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuUno").style.oTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuDos").style.webkitTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuDos").style.mozTransform="skew(40deg)";
+                $scope.miForma=document.getElementById("menuDos").style.oTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuTres").style.webkitTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuTres").style.mozTransform="skew(20deg)";
+                $scope.miForma=document.getElementById("menuTres").style.oTransform="skew(20deg)";
+                $scope.miForma = document.getElementById("menuPrincipal").style.borderRadius="0%";
+                $scope.miForma = document.getElementById("menuUno").style.borderRadius="0%";
+                $scope.miForma = document.getElementById("menuDos").style.borderRadius="0%";
+                $scope.miForma = document.getElementById("menuTres").style.borderRadius="0%";
+
+            }
+
+            // -webkit-transform: skew(20deg);
+            // -moz-transform: skew(20deg);
+            // -o-transform: skew(20deg);
+            //
+
         };
         $scope.miForma={
             width: '90px',
